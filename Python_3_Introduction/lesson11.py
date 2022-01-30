@@ -26,7 +26,7 @@ class Adult(Person):
             super().__init__(age)
         else:
             raise ValueError
-
+    # driveメソッドを未実装だとエラーになる
     # def drive(self):
     #     print('ok')
 
