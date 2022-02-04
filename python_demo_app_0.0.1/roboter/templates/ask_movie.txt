@@ -1,0 +1,2 @@
+$user_nameさん。好きな映画はなんですか？
+$user_name. What is your favorite movie?
