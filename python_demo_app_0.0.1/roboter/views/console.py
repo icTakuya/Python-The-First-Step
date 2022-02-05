@@ -1,6 +1,8 @@
 import os
 import string
 
+import termcolor
+
 
 def get_template_dir_path():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -12,8 +14,9 @@ def find_template(temp_file):
     temp_file_path = os.path.join(template_dir_path, temp_file)
     return temp_file_path
 
-def get_template(template_file_path):
+def get_template(template_file_path, color=None):
     template = find_template(template_file_path)
     with open(template) as template_file:
         contents = template_file.read()
+        contents = termcolor.colored(contents, color)
         return string.Template(contents)
