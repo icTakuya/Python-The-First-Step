@@ -1,3 +1,4 @@
+from email import header
 import os
 import string
 
@@ -18,5 +19,7 @@ def get_template(template_file_path, color=None):
     template = find_template(template_file_path)
     with open(template) as template_file:
         contents = template_file.read()
+        contents = '{decoration}\n{contents}\n{decoration}\n'.format(
+            contents=contents, decoration='=' * 60)
         contents = termcolor.colored(contents, color)
         return string.Template(contents)

@@ -1,0 +1,2 @@
+おすすめの映画は$movieです。この映画は好きですか？(Yes/No)
+The movie I recommend is $movie. Do you like this movie?(y/n)

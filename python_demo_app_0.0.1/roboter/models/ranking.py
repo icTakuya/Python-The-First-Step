@@ -16,7 +16,7 @@ class CsvModel(object):
             pathlib.Path(csv_file).touch()
 
 class RankingModel(CsvModel):
-    def __init__(self, csv_file=None):
+    def __init__(self, csv_file=None, *args, **kwargs):
         if not csv_file:
             csv_file = RANKING_CSV_FILE_PATH
         super().__init__(csv_file)
@@ -30,11 +30,11 @@ class RankingModel(CsvModel):
             for row in reader:
                 self.data[row[RANKING_COLUMN_NAME]] = int(
                     row[RANKING_COLUMN_COUNT])
-                return self.data
+        return self.data
 
     def save(self):
         with open(self.csv_file, 'w+') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=self.column)
+            writer = csv.DictWriter(csv_file, fieldnames=self.column, lineterminator='\n')
             writer.writeheader()
 
             for name, count in self.data.items():
