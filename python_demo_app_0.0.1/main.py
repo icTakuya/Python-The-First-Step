@@ -1,2 +1,9 @@
 import roboter.controller.questions
-roboter.controller.questions.questions_about_movies()
+
+
+def main():
+    roboter.controller.questions.questions_about_movies()
+
+
+if __name__ == '__main__':
+    main()
